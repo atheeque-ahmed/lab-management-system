@@ -6,14 +6,14 @@ const sgTransport = require('@sendgrid/mail');
 const sendEmail = async (to, subject, text) => {
     try {
         // Set the SendGrid API key
-        sgTransport.setApiKey('key');
+        sgTransport.setApiKey('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');
 
         const transporter = nodemailer.createTransport({
             host: 'smtp.sendgrid.net',
             port: 587,
             auth: {
                 user: "apikey",
-                pass: 'key',
+                pass: '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',
             },
         });
 
