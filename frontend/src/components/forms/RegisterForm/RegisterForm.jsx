@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Typography, Form, Input, Button, Select, Row, Col, Checkbox} from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../services/auth';
+import { registerP } from '../../../services/auth';
 import { error, success } from '../../messages/CustomMessage';
 
 const { Option } = Select;
@@ -34,7 +34,7 @@ const RegisterForm = () => {
     };
 
     const onFinish = (values) => {
-        login(values)
+        register(values)
             .then((res) => {
                 success('The login was successful');
 

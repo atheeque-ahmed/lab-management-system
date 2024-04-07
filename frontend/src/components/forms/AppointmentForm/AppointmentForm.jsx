@@ -20,6 +20,8 @@ const AppointmentForm = () => {
     const [selectedTest, setSelectedTest] = useState('')
     const [form] = Form.useForm();
 
+    const history = useHistory();
+
     function handleTestChange(value) {
         console.log('setSelectedTest',value);
         setSelectedTest(value);
@@ -73,16 +75,26 @@ const AppointmentForm = () => {
 
     const onFinish = (values) => {
         console.log(values)
-        createAppointment(localStorage.user, values)
-            .then((res) => {
-                console.log(res);
-                success('The availability is created successfully');
-                form.resetFields();
-        })
-            .catch((err) => {
-                console.log(err);
-                error('The availability creation failed');
-            });
+
+
+        history.push('/patient/payment', {
+            patientId: values.patientId,
+            doctorId: values.doctorId,
+            testId: values.testId,
+            timeslotId: values.timeslotId,
+            appointmentCost: 5000, // Replace with the actual cost
+        });
+
+        // createAppointment(localStorage.user, values)
+        //     .then((res) => {
+        //         console.log(res);
+        //         success('The availability is created successfully');
+        //         form.resetFields();
+        // })
+        //     .catch((err) => {
+        //         console.log(err);
+        //         error('The availability creation failed');
+        //     });
     };
 
 
@@ -123,24 +135,12 @@ const AppointmentForm = () => {
             >
                 <Select placeholder="Select Technician" allowClear>
                     {doctors && doctors.map((data) => {
+
                         return <Option value={data._id}>{data.name}</Option>;
                     })}
                 </Select>
             </Form.Item>
-            {/* Tutor */}
-            {/*<Form.Item*/}
-            {/*    name="patientId"*/}
-            {/*    label="patient"*/}
-            {/*    style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(50% - 8px)' }}*/}
-            {/*    wrapperCol={{ span: 24 }}*/}
-            {/*    rules={[{ required: true, message: 'Please select a tutor!' }]}*/}
-            {/*>*/}
-            {/*    <Select placeholder="Select Tutor" allowClear >*/}
-            {/*        {patients && patients.map((data) => {*/}
-            {/*            return <Option value={data._id}>{data.name}</Option>;*/}
-            {/*        })}*/}
-            {/*    </Select>*/}
-            {/*</Form.Item>*/}
+
 
             <Form.Item
                 style={{
@@ -163,7 +163,7 @@ const AppointmentForm = () => {
                 </Select>
             </Form.Item>
 
-            <Title level={5}>Cost: Rs.7000</Title>
+            <Title level={5}>Cost: 5000</Title>
 
             <Form.Item wrapperCol={{ span: 12 }}>
                 <Button

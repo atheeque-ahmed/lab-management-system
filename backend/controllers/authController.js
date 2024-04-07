@@ -2,6 +2,7 @@ const Patient = require('../models/patientModel');
 const Technician = require('../models/technicianModel');
 const Doctor = require('../models/doctorModel');
 const Admin = require('../models/adminModel');
+const sendEmail = require('../utils/emailUtils');
 const generateToken = require('../utils/jwtUtils');
 
 // User registration controllers
@@ -13,6 +14,8 @@ exports.registerPatient = async (req, res) => {
         email,
         password,
     });
+
+    await sendEmail(email, 'Welcome to our healthcare platform!', `Dear ${name},\n\nThank you for registering with our healthcare platform. We are excited to have you on board and look forward to providing you with the best possible service.\n\nIf you have any questions or concerns, please don't hesitate to reach out to us.\n\nBest regards,\nThe Healthcare Team`);
 
     res.status(201).json({
         success: true,

@@ -1,37 +1,24 @@
 const fs = require('fs');
 const path = require('path');
-const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
-
-const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
-
-const oAuth2Client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    process.env.GOOGLE_REDIRECT_URI
-);
-
-oAuth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+const sgTransport = require('@sendgrid/mail');
 
 const sendEmail = async (to, subject, text) => {
     try {
-        const accessToken = await oAuth2Client.getAccessToken();
+        // Set the SendGrid API key
+        sgTransport.setApiKey('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');
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.sendgrid.net',
+            port: 587,
             auth: {
-                type: 'OAuth2',
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-                clientId: process.env.GOOGLE_CLIENT_ID,
-                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-                accessToken: accessToken,
+                user: "apikey",
+                pass: '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',
             },
         });
 
         await transporter.sendMail({
-            from: process.env.EMAIL_USER,
+            from: 'atheeque98@gmail.com',
             to,
             subject,
             text,

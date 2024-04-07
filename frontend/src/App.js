@@ -16,6 +16,7 @@ import PatientRoute from "./routes/PatientRoute";
 import AdminRoute from "./routes/AdminRoute";
 import Home from "./pages/technician/Home";
 import RegisterPage from "./pages/auth/Register/RegisterPage";
+import PaymentPage from "./pages/patient/Appointments/PaymentPage";
 
 function App() {
 
@@ -68,6 +69,8 @@ function App() {
               <Route exact path="/admin/create-appointments" component={CreateAppointmentPage} />
 
               <Route exact path="/tech/dashboard" component={Home} />
+
+              <Route exact path="/patient/payment" component={PaymentPage} />
 
           </Switch>
   );

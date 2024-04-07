@@ -12,7 +12,6 @@ const { Title } = Typography;
 const { Text } = Typography;
 
 const CreateAppointment = ({ match }) => {
-    const [tutorDetails, setTutorDetails] = useState([]);
 
     const { user } = useSelector((state) => ({ ...state }));
 

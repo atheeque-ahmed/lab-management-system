@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined,} from '@ant-design/icons';
 
-import {Breadcrumb, Layout, Menu, theme} from 'antd';
+import {Breadcrumb, Layout, Menu, theme, Button} from 'antd';
 import {useDispatch} from "react-redux";
 import {useHistory} from "react-router-dom";
 import CreateAppointment from "./appointment/CreateAppointment";
@@ -24,8 +24,6 @@ const items = [
     getItem('Dashboards', '1', <PieChartOutlined/>),
     getItem('Technicians', 'tech', <DesktopOutlined/>, [
         getItem('Create Technician', 'tech-1'),
-        getItem('Update Technician', 'tech-2'),
-        getItem('Delete Technician', 'tech-3'),
         getItem('All Technicians', 'tech-4'),
     ]),
     getItem('Patients', 'sub1', <UserOutlined/>, [
@@ -69,7 +67,7 @@ const App = () => {
         >
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
                 <div className="demo-logo-vertical" style={{ height: '70px', color: "white", marginLeft: '15px', marginTop: '40px'}}><h2> ABC Laboratories</h2></div>
-                {/*<Button onClick={logout}>logout</Button>*/}
+                <Button onClick={logout}>logout</Button>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={(item) => setActiveMenuItem(item.key)}/>
             </Sider>
             <Layout>

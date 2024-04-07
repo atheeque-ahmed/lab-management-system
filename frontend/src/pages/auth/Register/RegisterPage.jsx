@@ -28,11 +28,6 @@ const RegisterPage = () => {
                         style={{
                             padding: 24,
                             width: 500,
-                            //     minHeight: 360,
-                            //     marginTop: 200,
-                            //     marginBottom:150,
-                            //     marginRight: 600,
-                            //     marginLeft: 600,
                             backgroundColor: "white",
                             borderRadius: 10
                         }}
