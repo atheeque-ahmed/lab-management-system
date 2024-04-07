@@ -39,7 +39,7 @@ const CreateTechnicianForm = () => {
             <Form.Item
                 name="name"
                 label="Technician Name"
-                style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(50% - 8px)' }}
+                style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(100% - 16px)' }}
                 rules={[{ required: true, message: 'Please select an educational level!' }]}
             >
                 <Input />
@@ -48,6 +48,7 @@ const CreateTechnicianForm = () => {
             <Form.Item
                 label="Email"
                 name="email"
+                style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(50% - 8px)' }}
                 rules={[{ required: true, message: 'Please input your email!' }, {
                     type: 'email',
                     message: 'Please input a valid email!',
@@ -58,6 +59,7 @@ const CreateTechnicianForm = () => {
             <Form.Item
                 label="Password"
                 name="password"
+                style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(50% - 8px)' }}
                 rules={[{ required: true, message: 'Please input your password!' }]}
             >
                 <Input.Password />
@@ -80,7 +82,7 @@ const CreateTechnicianForm = () => {
                 <Input />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ span: 12 }}>
+            <Form.Item style={{ paddingRight: '8px', display: 'inline-block', width: 'calc(100% - 16px)' }}>
                 <Button
                     type="primary"
                     block

@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Breadcrumb, theme} from 'antd';
-
-import AppointmentForm from "../../../components/forms/AppointmentForm/AppointmentForm";
 import {useSelector} from "react-redux";
 import jwt_decode from "jwt-decode";
-import {getAllAppointments} from "../../../services/appointment";
 import {getTechnicians} from "../../../services/users";
 import TechniciansTable from "../../../components/tables/TechniciansTable";
 
@@ -36,6 +33,7 @@ const AllTechnicians = () => {
 
 
     return (
+        console.log("techs", technicians),
         <div>
             <Breadcrumb
                 style={{
