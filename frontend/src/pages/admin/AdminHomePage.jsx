@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined,} from '@ant-design/icons';
+import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
 
 import {Breadcrumb, Layout, Menu, theme, Button} from 'antd';
 import {useDispatch} from "react-redux";
@@ -8,6 +8,10 @@ import CreateAppointment from "./appointment/CreateAppointment";
 import MyAppointments from "../technician/Tests";
 import AllTechnicians from "./technician/AllTechnicians";
 import CreateTechnician from "./technician/CreateTechnician";
+import CreateDoctors from './doctor/CreateDoctors';
+import AllDoctors from './doctor/AllDoctors';
+import CreatePatients from './patient/CreatePatients';
+import AllPatients from './patient/AllPatients';
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -31,12 +35,13 @@ const items = [
         getItem('All Patients', '4'),
     ]),
     getItem('Doctors', 'sub2', <TeamOutlined/>, [
+        getItem('Create Doctor', '5'),
         getItem('All Doctors', '6'),
-        getItem('Create Doctor', '6'),
+   
     ]),
     getItem('Appointments', '9', <FileOutlined/>, [
-        getItem('All Appointments', '10'),
-        getItem('Create Appointments', '11'),
+        getItem('All Appointments', '7'),
+        getItem('Create Appointments', '8'),
     ]),
 
 ];
@@ -82,8 +87,14 @@ const App = () => {
                         margin: '0 16px',
                     }}
                 >
-                        {activeMenuItem === '11' && <CreateAppointment />}
-                        {activeMenuItem === '10' && <MyAppointments />}
+                        {activeMenuItem === '7' && <CreateAppointment />}
+                        {activeMenuItem === '8' && <MyAppointments />}
+
+                        {activeMenuItem === '5' && <CreateDoctors />}
+                        {activeMenuItem === '6' && <AllDoctors />}
+
+                        {activeMenuItem === '3' && <CreatePatients />}
+                        {activeMenuItem === '4' && <AllPatients />}
 
                         {activeMenuItem === 'tech-4' && <AllTechnicians />}
                         {activeMenuItem === 'tech-1' && <CreateTechnician />}
