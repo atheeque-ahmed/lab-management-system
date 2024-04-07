@@ -3,8 +3,8 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { success, error } from '../../../components/messages/CustomMessage';
-import { makePayment  } from '../../../services/payment';
-import { createAppointment} from "../../../services/appointment";
+import { makePayment } from '../../../services/payment';
+import { createAppointment } from "../../../services/appointment";
 import './payment.css'
 
 const stripePromise = loadStripe('pk_test_51P2eSSKvJ8W8BQxVl5kkwJ7edV3QiGyjhwpoJNBmTncouaE7NqzZNbSO4YjHY3GYrL8LbeAvwSRHk8UjOwKYtqSh00kRXedluO');
