@@ -4,34 +4,41 @@ import moment from 'moment';
 
 const columns = [
     {
-        title: 'Test',
-        dataIndex: ['test'],
+        title: 'Name',
+        dataIndex: ['name'],
     },
     {
-        title: 'Date',
-        dataIndex: ['appointmentDate'],
-        render: (date) => moment(date).format('L'),
+        title: 'Email',
+        dataIndex: ['email'],
     },
     {
-        title: 'Time',
-        dataIndex: ['appointmentDate'],
-        render: (start_time) => moment(start_time).format('LT'),
+        title: 'Role',
+        dataIndex: ['role'],
     },
     {
-        title: 'Status',
-        dataIndex: ['status'],
-        render: (record) => (
-            <Tag color="green">
-                {record}
-            </Tag>
+        title: 'Specialization',
+        dataIndex: ['specialization'],
+    },
+    {
+        title: 'Employment Start Date',
+        dataIndex: ['employmentStartDate'],
+        render: (employmentStartDate) => new Date(employmentStartDate).toLocaleDateString()
+    },
+    {
+        title: 'Edit',
+        dataIndex: 'edit',
+        render: (_, record) => (
+            <Button type='primary'>
+                Edit
+            </Button>
         ),
     },
     {
-        title: 'View',
-        dataIndex: 'join now',
+        title: 'Delete',
+        dataIndex: 'delete',
         render: (_, record) => (
-            <Button htmlType="submit" type="link">
-                View
+            <Button danger onClick={()=>console.log("delete patient: ",record._id)}>
+                Delete
             </Button>
         ),
     },
