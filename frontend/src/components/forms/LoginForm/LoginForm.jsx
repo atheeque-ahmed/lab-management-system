@@ -19,6 +19,7 @@ const LoginForm = () => {
 
         if (user && user.token && user.role === 'patient') history.push('/patient/create-appointment');
         if (user && user.token && user.role === 'admin') history.push('/admin/dashboard');
+        if (user && user.token && user.role === 'technician') history.push('/tech/dashboard');
 
     }, [user, history]);
 
@@ -27,6 +28,8 @@ const LoginForm = () => {
             history.push('/admin/dashboard');
         } else if (res.data.role === 'patient') {
             history.push('/patient/create-appointment');
+        } else if (res.data.role === 'technician') {
+            history.push('/tech/dashboard');
         }
     };
 

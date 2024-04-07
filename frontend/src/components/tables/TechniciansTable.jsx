@@ -47,7 +47,7 @@ const TechniciansTable = ({ technicians, loading }) => {
                     dataSource={technicians}
                     pagination={{ defaultPageSize: 4, position: ['bottomCenter'] }}
                 />
-            </ConfigProvider>
+            </ConfigProvider>          
         </div>
     );
 };
